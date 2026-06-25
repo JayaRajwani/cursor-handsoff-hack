@@ -13,8 +13,9 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["node", "vitest/globals"]
   },
-  "include": ["src/**/*", "scripts/**/*", "tests/**/*"],
+  "include": ["src/**/*", "scripts/**/*", "tests/**/*", "lib/**/*", "app/**/*"],
   "exclude": ["node_modules", "dist"]
 }

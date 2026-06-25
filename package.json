@@ -1,8 +1,9 @@
 {
   "name": "hackos",
   "version": "0.1.0",
-  "description": "HackOS — AI event company operating system for autonomous hackathon management",
+  "description": "HackOS - AI event company operating system for autonomous hackathon management",
   "type": "module",
+  "private": true,
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -12,6 +13,10 @@
   },
   "keywords": ["hackathon", "agents", "events", "ai"],
   "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "openai": "^4.67.3"
+  },
   "devDependencies": {
     "@types/node": "^22.10.0",
     "tsx": "^4.19.2",
