@@ -11,6 +11,23 @@ export { CommunityAgent } from "./agents/community/CommunityAgent.js";
 export type * from "./agents/community/types.js";
 export { generateServerPlan, generateServerChannels } from "./agents/community/serverPlan.js";
 export { getRoles, getPermissionRules, canRoleAccessChannel } from "./agents/community/roles.js";
+export {
+  generateWhatsAppPlan,
+  generateWhatsAppGroups,
+  generateWhatsAppBroadcastTemplates,
+  generateWhatsAppAutomations,
+  MockWhatsAppClient,
+} from "./agents/community/whatsapp.js";
+
+export { SponsorshipAgent } from "./agents/sponsorship/SponsorshipAgent.js";
+export type * from "./agents/sponsorship/types.js";
+export { MOCK_SPONSOR_LEADS } from "./agents/sponsorship/mockSponsors.js";
+
+export * from "./payments/index.js";
+export { PaymentApi } from "./api/paymentRoutes.js";
+export type { ApiRequest, ApiResponse } from "./api/paymentRoutes.js";
+export { renderApprovalView } from "./api/approvalView.js";
+export { createPaymentServer } from "./api/server.js";
 
 export { MainAgentOrchestrator, createOrchestrator } from "./orchestration/MainAgentOrchestrator.js";
 export type { EventBrief, OrchestrationResult } from "./orchestration/types.js";

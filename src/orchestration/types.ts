@@ -18,6 +18,12 @@ export interface EventBrief {
   requiresOvernightAccess: boolean;
   requiresStrongWifi: boolean;
   communityPlatform: string;
+  /** Additional community platforms run alongside the primary one, e.g. ["WhatsApp"]. */
+  secondaryCommunityPlatforms?: string[];
+  /** Whether to provision a WhatsApp community. Defaults to true when WhatsApp is listed. */
+  whatsappEnabled?: boolean;
+  /** Default dialling region for participant numbers, e.g. "+44". */
+  whatsappCountryCode?: string;
   tone: string;
   eventDescription?: string;
   participantTypes?: string[];

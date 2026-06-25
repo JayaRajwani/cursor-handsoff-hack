@@ -87,6 +87,32 @@ async function main(): Promise<void> {
     }
   }
 
+  divider("WHATSAPP COMMUNITY PLAN");
+  const wa = communityResult.whatsappPlan;
+  console.log(`\nCommunity: ${wa.communityName}`);
+  console.log(`Platform: ${wa.platform} (enabled: ${wa.enabled})`);
+  console.log(`Default country code: ${wa.defaultCountryCode}`);
+  console.log(`Groups: ${wa.totalGroups} | Broadcast templates: ${wa.broadcastTemplates.length}`);
+  console.log(`Opt-in policy: ${wa.optInPolicy}`);
+
+  console.log("\nGroups:");
+  for (const g of wa.groups) {
+    const lock = g.inviteVisibility === "private" ? " 🔒" : g.adminOnly ? " 📣" : "";
+    const mirror = g.linkedDiscordChannel ? ` ↔ #${g.linkedDiscordChannel}` : "";
+    console.log(`  • ${g.name}${lock} (${g.type})${mirror}`);
+  }
+
+  console.log("\nBroadcast templates (require Meta approval before sending):");
+  table(
+    ["Template", "Category", "Opt-in", "Target Groups"],
+    wa.broadcastTemplates.map((t) => [
+      t.name,
+      t.category,
+      t.requiresOptIn ? "required" : "transactional",
+      t.targetGroups.join(", "),
+    ]),
+  );
+
   divider("ROLE PLAN");
   table(
     ["Role", "Color", "Key Permissions"],

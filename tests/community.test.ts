@@ -3,6 +3,10 @@ import { mockEventBrief } from "../src/data/mockEventBrief.js";
 import { generateServerChannels, generateServerPlan } from "../src/agents/community/serverPlan.js";
 import { getRoles, getPermissionRules, canRoleAccessChannel } from "../src/agents/community/roles.js";
 import { generateAnnouncementTemplates } from "../src/agents/community/announcements.js";
+import {
+  generateWhatsAppPlan,
+  generateWhatsAppGroups,
+} from "../src/agents/community/whatsapp.js";
 import { CommunityAgent } from "../src/agents/community/CommunityAgent.js";
 
 describe("channel generation", () => {
@@ -118,6 +122,65 @@ describe("announcement generation", () => {
   });
 });
 
+describe("whatsapp community plan", () => {
+  it("creates announcement, discussion, support, track, and private groups", () => {
+    const groups = generateWhatsAppGroups(mockEventBrief);
+    const types = new Set(groups.map((g) => g.type));
+
+    expect(types.has("announcement")).toBe(true);
+    expect(types.has("discussion")).toBe(true);
+    expect(types.has("support")).toBe(true);
+    expect(types.has("track")).toBe(true);
+    expect(types.has("private")).toBe(true);
+  });
+
+  it("creates one WhatsApp group per track", () => {
+    const groups = generateWhatsAppGroups(mockEventBrief);
+    const trackGroups = groups.filter((g) => g.type === "track");
+    expect(trackGroups).toHaveLength(mockEventBrief.tracks.length);
+  });
+
+  it("restricts the announcement group to admins and links it to Discord", () => {
+    const groups = generateWhatsAppGroups(mockEventBrief);
+    const announce = groups.find((g) => g.type === "announcement")!;
+    expect(announce.adminOnly).toBe(true);
+    expect(announce.linkedDiscordChannel).toBe("announcements");
+  });
+
+  it("keeps private groups gated by role", () => {
+    const groups = generateWhatsAppGroups(mockEventBrief);
+    const privateGroups = groups.filter((g) => g.type === "private");
+    expect(privateGroups.length).toBeGreaterThan(0);
+    expect(privateGroups.every((g) => (g.allowedRoles?.length ?? 0) > 0)).toBe(true);
+    expect(privateGroups.every((g) => g.inviteVisibility === "private")).toBe(true);
+  });
+
+  it("derives broadcast templates from announcements and flags marketing opt-in", () => {
+    const announcements = generateAnnouncementTemplates(mockEventBrief);
+    const plan = generateWhatsAppPlan(mockEventBrief, announcements);
+
+    expect(plan.platform).toBe("WhatsApp");
+    expect(plan.enabled).toBe(true);
+    expect(plan.broadcastTemplates.length).toBeGreaterThan(0);
+
+    const reg = plan.broadcastTemplates.find((t) => t.announcementType === "registration_open")!;
+    expect(reg.category).toBe("MARKETING");
+    expect(reg.requiresOptIn).toBe(true);
+
+    const venue = plan.broadcastTemplates.find((t) => t.announcementType === "venue_confirmed")!;
+    expect(venue.category).toBe("UTILITY");
+    expect(venue.requiresOptIn).toBe(false);
+  });
+
+  it("can be disabled via the event brief", () => {
+    const plan = generateWhatsAppPlan(
+      { ...mockEventBrief, whatsappEnabled: false },
+      generateAnnouncementTemplates(mockEventBrief),
+    );
+    expect(plan.enabled).toBe(false);
+  });
+});
+
 describe("approval checkpoint behaviour", () => {
   it("requires approval for channel creation and announcements", async () => {
     const agent = new CommunityAgent({ mockMode: true });
@@ -128,12 +191,19 @@ describe("approval checkpoint behaviour", () => {
     expect(output.approvalRequired).toBe(true);
 
     const approvals = agent.requestApproval();
-    expect(approvals.length).toBeGreaterThanOrEqual(3);
+    expect(approvals.length).toBeGreaterThanOrEqual(4);
 
     const types = approvals.map((a) => a.type);
     expect(types).toContain("create_channels");
     expect(types).toContain("publish_rules");
     expect(types).toContain("schedule_announcements");
+    expect(types).toContain("create_whatsapp_broadcast");
+
+    const waApproval = approvals.find((a) => a.type === "create_whatsapp_broadcast")!;
+    expect(waApproval.riskLevel).toBe("high");
+
+    expect(output.whatsappPlan.platform).toBe("WhatsApp");
+    expect(output.whatsappPlan.groups.length).toBeGreaterThan(0);
   });
 
   it("includes draft content in approval requests", async () => {

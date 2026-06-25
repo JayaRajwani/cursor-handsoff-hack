@@ -26,6 +26,9 @@ export const mockEventBrief: EventBrief = {
   requiresOvernightAccess: true,
   requiresStrongWifi: true,
   communityPlatform: "Discord",
+  secondaryCommunityPlatforms: ["WhatsApp"],
+  whatsappEnabled: true,
+  whatsappCountryCode: "+44",
   tone: "high-energy, serious, friendly, ambitious",
   eventDescription:
     "A 48-hour build sprint bringing together 500 builders, researchers, and founders to ship production-grade AI prototypes across five tracks.",

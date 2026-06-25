@@ -8,11 +8,13 @@ export interface IntegrationStatus {
 
 export const FUTURE_INTEGRATIONS: IntegrationStatus[] = [
   { name: "Discord API", status: "mock", description: "Server creation, channels, roles, messages, automations" },
+  { name: "WhatsApp Business Cloud API", status: "mock", description: "Community groups, opt-in, template registration, broadcast messaging (Meta Graph API / Twilio / 360dialog)" },
   { name: "Google Maps API", status: "mock", description: "Venue location, transport links, accessibility mapping" },
   { name: "Venue Marketplace APIs", status: "mock", description: "Real-time venue search, availability, pricing" },
   { name: "Email API", status: "mock", description: "Venue outreach, participant communications (SendGrid/Resend)" },
   { name: "CRM", status: "mock", description: "Venue relationship tracking, sponsor pipeline" },
   { name: "Airtable / Database", status: "mock", description: "Event data, submissions, team formation index" },
-  { name: "Stripe / Invoicing", status: "mock", description: "Venue deposits, sponsor payments, ticket sales" },
+  { name: "PayPal Checkout", status: "ready", description: "Sponsor, participant & vendor payments via PayPal Orders API (mock + sandbox + live, webhooks, approval checkpoint)" },
+  { name: "Stripe / Invoicing", status: "mock", description: "Venue deposits, alternative card payments, ticket sales" },
   { name: "Calendar API", status: "mock", description: "Event scheduling, deadline reminders, mentor availability" },
 ];

@@ -10,6 +10,12 @@ import {
   generateInitialCommunityHealth,
   MockDiscordClient,
 } from "./mockDiscord.js";
+import {
+  generateWhatsAppPlan,
+  generateWhatsAppAutomations,
+  generateWhatsAppWelcomeMessage,
+  MockWhatsAppClient,
+} from "./whatsapp.js";
 import type { CommunityAgentInput, CommunityAgentOutput } from "./types.js";
 
 export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgentOutput> {
@@ -17,6 +23,7 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
   readonly goal = "Create and manage the online community for the hackathon";
 
   private discordClient = new MockDiscordClient();
+  private whatsappClient = new MockWhatsAppClient();
 
   async plan(input: CommunityAgentInput): Promise<AgentPlan> {
     this.status = "planning";
@@ -31,6 +38,13 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
           id: "server-structure",
           name: "Create Discord server structure",
           description: "Generate categories, channels, and track-specific channels",
+          status: "pending",
+          requiresApproval: true,
+        },
+        {
+          id: "whatsapp-structure",
+          name: "Create WhatsApp community structure",
+          description: "Generate WhatsApp groups and broadcast templates mirroring Discord",
           status: "pending",
           requiresApproval: true,
         },
@@ -65,7 +79,7 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
         {
           id: "bots",
           name: "Bots and automations",
-          description: "Design 10 bot integration points with mock implementations",
+          description: "Design Discord + WhatsApp bot integration points with mock implementations",
           status: "pending",
           requiresApproval: false,
         },
@@ -122,6 +136,10 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
 
       this.updateTaskStatus("welcome-flow", "in_progress");
       const welcomeMessages = generateWelcomeMessages(input);
+      const whatsappEnabled = input.whatsappEnabled ?? true;
+      if (whatsappEnabled) {
+        welcomeMessages.push(generateWhatsAppWelcomeMessage(input));
+      }
       this.updateTaskStatus("welcome-flow", "completed");
 
       this.updateTaskStatus("rules-coc", "in_progress");
@@ -156,8 +174,30 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
       );
       this.updateTaskStatus("announcements", "completed");
 
+      this.updateTaskStatus("whatsapp-structure", "in_progress");
+      const whatsappPlan = generateWhatsAppPlan(input, announcementTemplates);
+      if (whatsappEnabled) {
+        this.createApprovalRequest(
+          "create_whatsapp_broadcast",
+          `Provision WhatsApp community with ${whatsappPlan.groups.length} groups and ${whatsappPlan.broadcastTemplates.length} broadcast templates`,
+          `Create WhatsApp Community "${whatsappPlan.communityName}" and register ${whatsappPlan.broadcastTemplates.length} message templates with Meta`,
+          whatsappPlan.groups.map((g) => g.name),
+          "WhatsApp messaging reaches participants' personal phones and requires explicit opt-in — broadcasts and templates must be approved before sending",
+          {
+            draftContent: whatsappPlan.broadcastTemplates
+              .map((t) => `[${t.category}] ${t.name}: ${t.body}`)
+              .join("\n\n"),
+            riskLevel: "high",
+          },
+        );
+      }
+      this.updateTaskStatus("whatsapp-structure", whatsappEnabled ? "completed" : "skipped");
+
       this.updateTaskStatus("bots", "in_progress");
-      const botAutomations = generateBotAutomations();
+      const botAutomations = [
+        ...generateBotAutomations(),
+        ...(whatsappEnabled ? generateWhatsAppAutomations() : []),
+      ];
       this.updateTaskStatus("bots", "completed");
 
       this.updateTaskStatus("moderation", "in_progress");
@@ -173,14 +213,25 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
 
       if (this.context.mockMode) {
         await this.discordClient.createServer(input.eventName, serverPlan.description);
+        if (whatsappEnabled) {
+          await this.whatsappClient.createCommunity(
+            whatsappPlan.communityName,
+            whatsappPlan.description,
+          );
+        }
       }
 
-      const nextActions = this.buildNextActions(channels.length, announcementTemplates.length);
+      const nextActions = this.buildNextActions(
+        channels.length,
+        announcementTemplates.length,
+        whatsappEnabled ? whatsappPlan : null,
+      );
 
       const output: CommunityAgentOutput = {
         agent: "community-agent",
         status: this.hasPendingApprovals() ? "pending_approval" : "completed",
         serverPlan,
+        whatsappPlan,
         channels,
         roles,
         permissions,
@@ -200,6 +251,7 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
         status: output.status,
         channels: channels.length,
         roles: roles.length,
+        whatsappGroups: whatsappEnabled ? whatsappPlan.groups.length : 0,
       });
 
       return output;
@@ -210,8 +262,12 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
     }
   }
 
-  private buildNextActions(channelCount: number, announcementCount: number): string[] {
-    return [
+  private buildNextActions(
+    channelCount: number,
+    announcementCount: number,
+    whatsappPlan: { groups: { length: number }; broadcastTemplates: { length: number } } | null,
+  ): string[] {
+    const actions = [
       "Approve Discord server creation with channel structure",
       "Approve community rules before publishing to #rules",
       "Approve initial announcement templates (registration open)",
@@ -222,6 +278,14 @@ export class CommunityAgent extends BaseAgent<CommunityAgentInput, CommunityAgen
       "Connect Devpost submission webhook to #submissions bot",
       "Schedule welcome message sequence for server launch",
     ];
+    if (whatsappPlan) {
+      actions.push(
+        `Approve WhatsApp community (${whatsappPlan.groups.length} groups) before provisioning`,
+        `Register ${whatsappPlan.broadcastTemplates.length} WhatsApp templates with Meta for approval (24–48h lead time)`,
+        "Add WhatsApp opt-in checkbox + number verification to the registration form",
+      );
+    }
+    return actions;
   }
 
   private updateTaskStatus(

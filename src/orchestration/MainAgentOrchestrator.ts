@@ -1,8 +1,12 @@
 import { VenueAgent } from "../agents/venue/VenueAgent.js";
 import { CommunityAgent } from "../agents/community/CommunityAgent.js";
+import { SponsorshipAgent } from "../agents/sponsorship/SponsorshipAgent.js";
+import { createPaymentService, type PaymentService } from "../payments/PaymentService.js";
 import type { EventBrief, OrchestrationResult } from "./types.js";
 import type { VenueAgentOutput } from "../agents/venue/types.js";
 import type { CommunityAgentOutput } from "../agents/community/types.js";
+import type { SponsorshipAgentInput, SponsorshipAgentOutput } from "../agents/sponsorship/types.js";
+import type { PendingPaymentSummary } from "../payments/PaymentService.js";
 
 export interface OrchestratorOptions {
   mockMode?: boolean;
@@ -11,11 +15,19 @@ export interface OrchestratorOptions {
 export class MainAgentOrchestrator {
   readonly venueAgent: VenueAgent;
   readonly communityAgent: CommunityAgent;
+  readonly sponsorshipAgent: SponsorshipAgent;
+  /** Shared payment service so the Main Agent can answer money questions. */
+  readonly paymentService: PaymentService;
 
   constructor(options: OrchestratorOptions = {}) {
     const context = { mockMode: options.mockMode ?? true };
     this.venueAgent = new VenueAgent(context);
     this.communityAgent = new CommunityAgent(context);
+    this.paymentService = createPaymentService();
+    this.sponsorshipAgent = new SponsorshipAgent({
+      mockMode: context.mockMode,
+      paymentService: this.paymentService,
+    });
   }
 
   async runVenueAgent(eventBrief: EventBrief): Promise<VenueAgentOutput> {
@@ -39,6 +51,16 @@ export class MainAgentOrchestrator {
       community,
       timestamp: new Date().toISOString(),
     };
+  }
+
+  async runSponsorshipAgent(input: SponsorshipAgentInput): Promise<SponsorshipAgentOutput> {
+    await this.sponsorshipAgent.plan(input);
+    return this.sponsorshipAgent.execute();
+  }
+
+  /** Main Agent question: "What sponsorship payments are pending?" */
+  askPendingSponsorshipPayments(eventId?: string): PendingPaymentSummary {
+    return this.paymentService.getSponsorshipPaymentsSummary(eventId);
   }
 
   approveVenueOutreach(approvalId: string, approved: boolean): void {
