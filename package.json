@@ -10,6 +10,7 @@
     "whatsapp:demo": "tsx scripts/whatsapp-demo.ts",
     "whatsapp:check": "tsx scripts/whatsapp-check.ts",
     "wassist:check": "tsx scripts/wassist-check.ts",
+    "wassist:send-test": "tsx scripts/wassist-send-test.ts",
     "paypal:demo": "tsx scripts/sponsorship-demo.ts",
     "paypal:serve": "tsx src/api/server.ts",
     "setup:paypal": "tsx scripts/setup-paypal-sandbox.ts",
