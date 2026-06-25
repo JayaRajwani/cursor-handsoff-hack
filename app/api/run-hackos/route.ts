@@ -1,5 +1,19 @@
 import { runHackOS } from "../../../src/orchestration/HackOSApiOrchestrator.js";
 
+const corsHeaders = {
+  "access-control-allow-origin": process.env.FRONTEND_ORIGIN ?? "*",
+  "access-control-allow-methods": "POST, OPTIONS",
+  "access-control-allow-headers": "content-type, authorization",
+  "access-control-max-age": "86400",
+};
+
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders,
+  });
+}
+
 export async function POST(request: Request) {
   let body: unknown;
 
@@ -22,6 +36,6 @@ export async function POST(request: Request) {
 function json(payload: unknown, status = 200): Response {
   return new Response(JSON.stringify(payload), {
     status,
-    headers: { "content-type": "application/json" },
+    headers: { "content-type": "application/json", ...corsHeaders },
   });
 }

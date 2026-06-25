@@ -6,6 +6,14 @@ type RequestBody = {
 };
 
 export default async function handler(request: IncomingMessage, response: ServerResponse) {
+  setCorsHeaders(response);
+
+  if (request.method === "OPTIONS") {
+    response.statusCode = 204;
+    response.end();
+    return;
+  }
+
   if (request.method !== "POST") {
     sendJson(response, 405, { error: "Method not allowed. Use POST." });
     return;
@@ -41,4 +49,11 @@ function sendJson(response: ServerResponse, statusCode: number, payload: unknown
   response.statusCode = statusCode;
   response.setHeader("content-type", "application/json");
   response.end(JSON.stringify(payload));
+}
+
+function setCorsHeaders(response: ServerResponse): void {
+  response.setHeader("access-control-allow-origin", process.env.FRONTEND_ORIGIN ?? "*");
+  response.setHeader("access-control-allow-methods", "POST, OPTIONS");
+  response.setHeader("access-control-allow-headers", "content-type, authorization");
+  response.setHeader("access-control-max-age", "86400");
 }
