@@ -1,0 +1,21 @@
+{
+  "name": "hackos",
+  "version": "0.1.0",
+  "description": "HackOS — AI event company operating system for autonomous hackathon management",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "demo": "tsx scripts/demo.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": ["hackathon", "agents", "events", "ai"],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
