@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hack.OS | Agentic Hackathon Builder</title>
+    <meta name="description" content="Hack.OS is an agentic hackathon builder that launches, operates, and closes ambitious hackathons from one goal." />
+    <link rel="stylesheet" href="./styles.css?v=chat" />
+  </head>
+  <body>
+
+    <!-- ── Header ── -->
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Hack.OS home">
+        <span class="mark" aria-hidden="true"></span>
+        <span>Hack.OS</span>
+      </a>
+      <nav>
+        <a href="#system">System</a>
+        <a href="#agents">Agents</a>
+        <a href="#proof">Proof</a>
+      </nav>
+      <a class="header-action" href="mailto:founders@hackos.ai">Build an event</a>
+    </header>
+
+    <main id="top">
+
+      <!-- ── Hero (compact) ── -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="grid-glow" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <p class="motto">agentic hackathon builder</p>
+          <h1 id="hero-title">Hack.OS</h1>
+          <p class="hero-lede">
+            Give it a goal like <span>Run the largest AI hackathon in London next month</span>
+            and Hack.OS builds, staffs, markets, operates, and closes the event autonomously.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#chat" class="btn-primary scroll-to-chat">Start the build ↓</a>
+            <a href="#system" class="btn-ghost">See the system</a>
+          </div>
+        </div>
+
+        <aside class="command-panel" aria-label="Live agent status">
+          <div class="panel-top">
+            <span id="panel-status">MAIN AGENT</span>
+            <b id="panel-live">LIVE</b>
+          </div>
+          <p class="goal" id="panel-goal">Goal: Run the entire hackathon</p>
+          <div class="task-stack" id="task-stack">
+            <span data-task="organizer">Organizer Agent</span>
+            <span data-task="community">Community Agent</span>
+            <span data-task="sponsorship">Sponsorship Agent</span>
+            <span data-task="paypal">PayPal checkout</span>
+            <span data-task="save">Saving plan</span>
+          </div>
+          <div class="panel-foot">
+            <span id="panel-foot-left">Ready</span>
+            <span>Human approval gates on</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CHAT SECTION
+      ══════════════════════════════════════════ -->
+      <section class="chat-section" id="chat" aria-label="Hack.OS chat interface">
+
+        <div class="chat-thread" id="chat-thread" role="log" aria-live="polite">
+
+          <!-- Welcome message — visible on load -->
+          <div class="msg msg-hackos" id="welcome-msg">
+            <div class="msg-avatar" data-who="hackos">◈</div>
+            <div class="msg-body">
+              <span class="msg-name">Hack.OS</span>
+              <div class="msg-content">
+                <p>Tell me what hackathon you want to run — goal, location, audience, date — and I'll build the entire event plan for you.</p>
+                <p class="msg-hint"><em>e.g. "Run the largest AI hackathon for student builders in London next month"</em></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Input bar -->
+        <form class="chat-input-bar" id="chat-form">
+          <textarea
+            id="chat-input"
+            class="chat-input"
+            rows="1"
+            placeholder="What hackathon do you want to run?"
+            aria-label="Hackathon goal"
+          ></textarea>
+          <button type="submit" id="chat-submit" class="chat-submit-btn" aria-label="Send">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 13V3M8 3L3 8M8 3L13 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+
+      </section>
+
+      <!-- ── Informational sections ── -->
+      <section class="statement" id="system" aria-labelledby="system-title">
+        <p class="section-label">Not another dashboard</p>
+        <h2 id="system-title">The product is the company that runs your hackathon.</h2>
+        <p>
+          Hack.OS turns event operations into a coordinated agent network. Sponsors, venue,
+          community, submissions, judging, marketing, and closeout all move from one command.
+        </p>
+      </section>
+
+      <section class="agents" id="agents" aria-labelledby="agents-title">
+        <div class="section-heading">
+          <p class="section-label">Agent mesh</p>
+          <h2 id="agents-title">Specialists with outcomes, not tabs.</h2>
+        </div>
+        <div class="agent-board">
+          <article class="agent-card primary">
+            <div>
+              <p class="agent-label">Main Agent</p>
+              <h3>Run the entire hackathon.</h3>
+            </div>
+            <ul>
+              <li>Post about the hackathon</li>
+              <li>Accept requests</li>
+              <li>Create website and submission flow</li>
+              <li>Create themes and tracks</li>
+              <li>Manage pre-evaluation for judges</li>
+            </ul>
+          </article>
+          <article class="agent-card sponsor">
+            <p class="agent-label">Sponsorship Agent</p>
+            <h3>Raise £100k.</h3>
+            <p>Builds the deck, finds companies, personalizes outreach, negotiates packages, and collects commitments.</p>
+            <div class="pipeline">
+              <span>OpenAI</span><i></i><span>Interested</span><i></i><span>Meeting booked</span><i></i><strong>£25k sponsor</strong>
+            </div>
+          </article>
+          <article class="agent-card venue">
+            <p class="agent-label">Venue Agent</p>
+            <h3>Find the right room.</h3>
+            <p>Searches venues and compares capacity, cost, transport, WiFi, and access.</p>
+            <div class="score-grid">
+              <span>Capacity</span><span>Cost</span><span>Transport</span><span>WiFi</span>
+            </div>
+          </article>
+          <article class="agent-card community">
+            <p class="agent-label">Community Agent</p>
+            <h3>Spin up the city inside Discord.</h3>
+            <p>Creates channels, rules, bots, welcome messages, and announcements.</p>
+            <div class="channels">
+              <span>#welcome</span><span>#teams</span><span>#judging</span><span>#demo-day</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="proof" id="proof" aria-labelledby="proof-title">
+        <div>
+          <p class="section-label">Demand signal</p>
+          <h2 id="proof-title">Hackathons are enterprise muscle memory.</h2>
+        </div>
+        <p>
+          <strong>80% of Fortune 100 companies conduct hackathons.</strong> Hack.OS gives that
+          repeatable demand a faster operating layer for launch, sponsorship, judging, community,
+          and closeout.
+          <a href="https://www.hackerearth.com/recruit/hackathons/" target="_blank" rel="noreferrer">HackerEarth source</a>
+        </p>
+      </section>
+
+      <section class="photo-strip" aria-label="Hackathon photo gallery">
+        <div class="photo-track">
+          <figure class="photo-item"><img src="./Photo1.jpg" alt="Hackathon participants" loading="lazy" /></figure>
+          <figure class="photo-item"><img src="./Photo2.jpg" alt="Developer at hackathon" loading="lazy" /></figure>
+          <figure class="photo-item"><img src="./Photo3.jpg" alt="Team collaborating" loading="lazy" /></figure>
+          <figure class="photo-item"><img src="./Photo4.jpg" alt="Hackathon floor" loading="lazy" /></figure>
+          <figure class="photo-item"><img src="./Photo5.jpg" alt="Hackers at event" loading="lazy" /></figure>
+        </div>
+      </section>
+
+      <section class="operating-surface" aria-labelledby="surface-title">
+        <p class="section-label">Operating surface</p>
+        <h2 id="surface-title">From brief to winner announcement.</h2>
+        <div class="surface-grid">
+          <article><span>01</span><h3>Build</h3><p>Event site, application flow, submission portal, tracks, copy, visuals.</p></article>
+          <article><span>02</span><h3>Staff</h3><p>Judges, mentors, volunteers, moderators, host scripts, day-of runbook.</p></article>
+          <article><span>03</span><h3>Market</h3><p>Launch posts, sponsor outreach, founder invites, community announcements.</p></article>
+          <article><span>04</span><h3>Close</h3><p>Winner comms, sponsor reports, project archive, clips, next-event plan.</p></article>
+        </div>
+      </section>
+
+      <section class="closing" aria-labelledby="closing-title">
+        <p class="motto">agentic hackathon builder</p>
+        <h2 id="closing-title">Tell Hack.OS the outcome.</h2>
+        <a href="#chat" class="closing-btn scroll-to-chat">Run the hackathon</a>
+      </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════
+         JAVASCRIPT
+    ══════════════════════════════════════════ -->
+    <script>
+    (function () {
+      'use strict';
+
+      const BACKEND = 'https://cursor-handsoff-hack.vercel.app';
+
+      // ── DOM refs ──────────────────────────────────────────────
+      const chatForm    = document.getElementById('chat-form');
+      const chatInput   = document.getElementById('chat-input');
+      const chatSubmit  = document.getElementById('chat-submit');
+      const chatThread  = document.getElementById('chat-thread');
+      const panelStatus = document.getElementById('panel-status');
+      const panelLive   = document.getElementById('panel-live');
+      const panelGoal   = document.getElementById('panel-goal');
+      const panelFoot   = document.getElementById('panel-foot-left');
+      const taskItems   = document.querySelectorAll('#task-stack span');
+
+      let isRunning = false;
+
+      // ── Auto-resize textarea ──────────────────────────────────
+      chatInput.addEventListener('input', () => {
+        chatInput.style.height = 'auto';
+        chatInput.style.height = Math.min(chatInput.scrollHeight, 160) + 'px';
+      });
+
+      chatInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          chatForm.requestSubmit();
+        }
+      });
+
+      // ── Scroll-to-chat links ──────────────────────────────────
+      document.querySelectorAll('.scroll-to-chat').forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          document.getElementById('chat').scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => chatInput.focus(), 600);
+        });
+      });
+
+      // ── Panel helpers ─────────────────────────────────────────
+      let panelTimer = null;
+
+      function panelStart(goal) {
+        panelGoal.textContent = 'Goal: ' + goal;
+        panelStatus.textContent = 'RUNNING';
+        panelLive.dataset.state = 'running';
+        panelFoot.textContent = 'Agents active';
+        taskItems.forEach(t => { t.dataset.state = 'pending'; });
+        let i = 0;
+        panelTimer = setInterval(() => {
+          if (i > 0) taskItems[i - 1].dataset.state = 'done';
+          if (i < taskItems.length) taskItems[i++].dataset.state = 'running';
+        }, 3500);
+      }
+
+      function panelDone() {
+        clearInterval(panelTimer);
+        panelStatus.textContent = 'MAIN AGENT';
+        panelLive.dataset.state = '';
+        panelFoot.textContent = 'Complete';
+        taskItems.forEach(t => { t.dataset.state = 'done'; });
+      }
+
+      function panelError() {
+        clearInterval(panelTimer);
+        panelStatus.textContent = 'MAIN AGENT';
+        panelLive.dataset.state = '';
+        panelFoot.textContent = 'Error — try again';
+        taskItems.forEach(t => { t.dataset.state = ''; });
+      }
+
+      // ── Message builders ──────────────────────────────────────
+      function appendMsg(who, name, html, extraClass) {
+        const wrap = document.createElement('div');
+        wrap.className = `msg msg-${who}${extraClass ? ' ' + extraClass : ''}`;
+        wrap.innerHTML = `
+          <div class="msg-avatar" data-who="${who}">${avatarChar(who)}</div>
+          <div class="msg-body">
+            ${name ? `<span class="msg-name">${esc(name)}</span>` : ''}
+            <div class="msg-content">${html}</div>
+          </div>`;
+        chatThread.appendChild(wrap);
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        return wrap;
+      }
+
+      function appendThinking(name) {
+        return appendMsg('thinking', name, `
+          <div class="thinking-dots" aria-label="Thinking">
+            <span></span><span></span><span></span>
+          </div>`, '');
+      }
+
+      function removeThinking() {
+        chatThread.querySelectorAll('.msg-thinking').forEach(m => m.remove());
+      }
+
+      function avatarChar(who) {
+        return { hackos: '◈', user: '→', organizer: 'OA', sponsorship: 'SA', community: 'CA', system: '·', thinking: '◈' }[who] || '?';
+      }
+
+      function esc(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      }
+
+      // ── Rich card templates ───────────────────────────────────
+      function buildOrganizerCard(org) {
+        const c = org.eventConcept || {};
+        const themes = (org.themes || []).map(t => `<span class="theme-tag">${esc(t)}</span>`).join('');
+        const tracks = (org.tracks || []).map(t => {
+          const n = typeof t === 'string' ? t : (t.name || t.title || '');
+          const d = typeof t === 'object' ? (t.description || t.focus || '') : '';
+          return `<div class="track-row"><strong>${esc(n)}</strong>${d ? `<p>${esc(d)}</p>` : ''}</div>`;
+        }).join('');
+        const launchPost = org.launchPost || {};
+        const postText = launchPost.twitter || launchPost.linkedin || launchPost.content || launchPost.text
+          || (typeof launchPost === 'string' ? launchPost : '');
+
+        return `
+          <div class="rich-card organizer-rich">
+            ${c.name ? `<h3 class="rc-title">${esc(c.name)}</h3>` : ''}
+            ${c.tagline ? `<p class="rc-tagline">${esc(c.tagline)}</p>` : ''}
+            ${c.description ? `<p class="rc-desc">${esc(c.description)}</p>` : ''}
+            ${themes ? `<div class="rc-section-label">Themes</div><div class="tag-list">${themes}</div>` : ''}
+            ${tracks ? `<div class="rc-section-label">Tracks</div><div class="tracks-col">${tracks}</div>` : ''}
+            ${postText ? `<div class="rc-section-label">Launch post</div><blockquote class="launch-post-inline">${esc(postText)}</blockquote>` : ''}
+          </div>`;
+      }
+
+      function buildSponsorCard(sponsorship, paypal) {
+        const sum = (sponsorship || {}).summary || {};
+        const approvals = (paypal || {}).pendingApprovals || [];
+        const mode = (paypal || {}).mode || '';
+
+        const moneyRow = `
+          <div class="money-row">
+            <div class="money-block"><span class="money-label">Committed</span><span class="money-val">${fmt(sum.totalCommitted)}</span></div>
+            <div class="money-block"><span class="money-label">Paid</span><span class="money-val">${fmt(sum.totalPaid)}</span></div>
+            <div class="money-block"><span class="money-label">Pending</span><span class="money-val">${fmt(sum.totalPending)}</span></div>
+          </div>`;
+
+        const cards = approvals.map(a => `
+          <div class="paypal-card">
+            <div class="paypal-card-head">
+              <span>${esc(a.sponsorName || 'Sponsor')}</span>
+              <strong>${fmt(a.amount, a.currency)}</strong>
+            </div>
+            ${a.packageName ? `<p class="paypal-package">${esc(a.packageName)}</p>` : ''}
+            ${a.checkoutUrl ? `<a href="${esc(a.checkoutUrl)}" target="_blank" rel="noreferrer" class="paypal-btn">Pay via PayPal ↗</a>` : ''}
+          </div>`).join('');
+
+        const modeTag = mode ? `<span class="mode-tag">${esc(mode)} mode</span>` : '';
+
+        return `
+          <div class="rich-card sponsor-rich">
+            ${modeTag}
+            ${moneyRow}
+            ${cards ? `<div class="paypal-grid">${cards}</div>` : '<p class="rc-muted">No sponsor approvals yet.</p>'}
+          </div>`;
+      }
+
+      function buildCommunityCard(community, whatsapp) {
+        const channels = (community || {}).channels || [];
+        const groups   = (whatsapp || {}).groups || [];
+        const wa       = (whatsapp || {});
+
+        const chips = [
+          ...channels.map(c => `<span class="channel-chip">#${esc(typeof c === 'string' ? c : (c.name || c))}</span>`),
+          ...groups.map(g => `<span class="channel-chip wa">📱 ${esc(typeof g === 'string' ? g : (g.name || g))}</span>`)
+        ].join('');
+
+        const serverPlan = (community || {}).serverPlan || {};
+        const serverName = serverPlan.name || serverPlan.serverName || '';
+
+        return `
+          <div class="rich-card community-rich">
+            ${serverName ? `<p class="rc-server">Discord: <strong>${esc(serverName)}</strong></p>` : ''}
+            ${wa.communityName ? `<p class="rc-server">WhatsApp: <strong>${esc(wa.communityName)}</strong></p>` : ''}
+            ${chips ? `<div class="channel-list" style="margin-top:12px">${chips}</div>` : '<p class="rc-muted">Community channels ready.</p>'}
+          </div>`;
+      }
+
+      function fmt(amount, currency) {
+        if (amount == null) return '—';
+        const c = currency || 'GBP';
+        const sym = c === 'GBP' ? '£' : c === 'USD' ? '$' : c === 'EUR' ? '€' : c + ' ';
+        return sym + Number(amount).toLocaleString();
+      }
+
+      // ── Delay ────────────────────────────────────────────────
+      const delay = ms => new Promise(r => setTimeout(r, ms));
+
+      // ── Main flow ─────────────────────────────────────────────
+      async function runHackathon(goal) {
+        if (isRunning) return;
+        isRunning = true;
+        chatSubmit.disabled = true;
+
+        // User message
+        appendMsg('user', null, `<p>${esc(goal)}</p>`);
+
+        // Start panel animation
+        panelStart(goal);
+
+        // Thinking state
+        let thinking = appendThinking('Hack.OS — dispatching agents');
+
+        try {
+          const res = await fetch(`${BACKEND}/api/run-hackos`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ goal })
+          });
+
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const json = await res.json();
+          if (!json.ok) throw new Error(json.error || 'API error');
+
+          const { organizer, sponsorship, paypal, community, whatsapp, persistence, metadata } = json.data;
+
+          // Remove thinking, show dispatch ack
+          removeThinking();
+          appendMsg('hackos', 'Hack.OS', `<p>Agents complete. Building your plan now…</p>`);
+
+          // ── Organizer ──
+          await delay(500);
+          thinking = appendThinking('Organizer Agent');
+          await delay(300);
+          removeThinking();
+          appendMsg('organizer', 'Organizer Agent', buildOrganizerCard(organizer || {}));
+
+          // ── Sponsorship ──
+          await delay(600);
+          thinking = appendThinking('Sponsorship Agent');
+          await delay(300);
+          removeThinking();
+          appendMsg('sponsorship', 'Sponsorship Agent', buildSponsorCard(sponsorship, paypal));
+
+          // ── Community ──
+          await delay(600);
+          thinking = appendThinking('Community Agent');
+          await delay(300);
+          removeThinking();
+          appendMsg('community', 'Community Agent', buildCommunityCard(community, whatsapp));
+
+          // ── Final summary ──
+          await delay(500);
+          const runLine = persistence?.runId ? ` Run ID: <code>${esc(persistence.runId)}</code>` : '';
+          const savedLine = persistence?.saved === false
+            ? '<p class="rc-muted">Note: plan was generated but not saved to database.</p>'
+            : '';
+          appendMsg('hackos', 'Hack.OS', `
+            <p>Your hackathon is ready to launch.${runLine}</p>
+            ${savedLine}
+            <div style="margin-top:14px">
+              <a href="#agents" class="btn-ghost-sm">See the agent breakdown ↓</a>
+            </div>`);
+
+          panelDone();
+
+        } catch (err) {
+          removeThinking();
+          appendMsg('system', null, `<p class="error-text">Error: ${esc(err.message)}. Check the backend is running and CORS is enabled.</p>`);
+          panelError();
+        }
+
+        isRunning = false;
+        chatSubmit.disabled = false;
+        chatInput.focus();
+      }
+
+      // ── Form submit ───────────────────────────────────────────
+      chatForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const goal = chatInput.value.trim();
+        if (!goal || isRunning) return;
+        chatInput.value = '';
+        chatInput.style.height = 'auto';
+        runHackathon(goal);
+      });
+
+    })();
+    </script>
+
+  </body>
+</html>
