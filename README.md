@@ -7,6 +7,8 @@ HackOS is an AI event company — not a dashboard. It autonomously plans, execut
 ```bash
 npm install
 npm run demo         # Run Venue + Community agents on mock London AI hackathon
+npm run whatsapp:demo # WhatsApp community walkthrough (mock, no creds)
+npm run wassist:check # Verify the live Wassist API key (read-only)
 npm run paypal:demo  # End-to-end sponsorship payment flow (mock PayPal, no creds)
 npm run paypal:serve # Payment API + operator approval view (mock by default)
 npm test             # Run test suite

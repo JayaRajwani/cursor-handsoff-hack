@@ -18,6 +18,23 @@ export {
   generateWhatsAppAutomations,
   MockWhatsAppClient,
 } from "./agents/community/whatsapp.js";
+export type { WhatsAppClient } from "./agents/community/whatsapp.js";
+export {
+  loadWhatsAppConfig,
+  createWhatsAppClient,
+  LiveWhatsAppClient,
+  WhatsAppConfigError,
+  WhatsAppApiError,
+  WhatsAppUnsupportedError,
+} from "./agents/community/whatsappClient.js";
+export type { WhatsAppConfig, WhatsAppMode } from "./agents/community/whatsappClient.js";
+export {
+  WassistClient,
+  loadWassistConfig,
+  WassistConfigError,
+  WassistApiError,
+} from "./agents/community/wassistClient.js";
+export type { WassistConfig, WassistAgent } from "./agents/community/wassistClient.js";
 
 export { SponsorshipAgent } from "./agents/sponsorship/SponsorshipAgent.js";
 export type * from "./agents/sponsorship/types.js";
