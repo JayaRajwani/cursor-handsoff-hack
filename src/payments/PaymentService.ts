@@ -292,9 +292,11 @@ export class PaymentService {
     const eventType = body.event_type ?? "UNKNOWN";
     const paymentIntentId = this.resolveIntentId(body);
 
+    const payload = body as unknown as Record<string, unknown>;
+
     // Idempotency / duplicate protection.
     if (this.store.hasProcessedProviderEvent(providerEventId)) {
-      return this.recordEvent(providerEventId, eventType, paymentIntentId, body, "ignored");
+      return this.recordEvent(providerEventId, eventType, paymentIntentId, payload, "ignored");
     }
 
     let status: PaymentEvent["status"] = "processed";
@@ -328,7 +330,7 @@ export class PaymentService {
       status = "ignored";
     }
 
-    return this.recordEvent(providerEventId, eventType, paymentIntentId, body, status);
+    return this.recordEvent(providerEventId, eventType, paymentIntentId, payload, status);
   }
 
   private resolveIntentId(body: WebhookBody): string | null {

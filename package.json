@@ -7,6 +7,8 @@
   "scripts": {
     "build": "tsc",
     "demo": "tsx scripts/demo.ts",
+    "paypal:demo": "tsx scripts/sponsorship-demo.ts",
+    "paypal:serve": "tsx src/api/server.ts",
     "setup:paypal": "tsx scripts/setup-paypal-sandbox.ts",
     "test": "vitest run",
     "test:watch": "vitest"
