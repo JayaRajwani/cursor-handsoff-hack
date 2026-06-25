@@ -11,3 +11,5 @@ dist/
 # PayPal sandbox credential kit (treat as secret)
 paypal-sandbox-kit.csv
 /mnt/data/paypal-sandbox-kit.csv
+.vercel
+.env*
