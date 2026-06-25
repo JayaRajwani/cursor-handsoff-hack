@@ -15,6 +15,27 @@ npm test             # Run test suite
 npm run build        # Compile TypeScript
 ```
 
+## HackOS API
+
+`POST /api/run-hackos`
+
+```json
+{
+  "goal": "Run an AI hackathon for student builders"
+}
+```
+
+The endpoint coordinates the Main Organizer Agent, Community Agent WhatsApp plan, Sponsorship Agent, PayPal checkout generation, and Supabase persistence. OpenAI failures fall back to structured mock organizer output. Supabase failures do not fail the request; the response includes `persistence.saved: false`.
+
+Required for live AI and persistence:
+
+```bash
+OPENAI_API_KEY=...
+OPENAI_MODEL=gpt-4o-mini
+SUPABASE_URL=...
+SUPABASE_SERVICE_ROLE_KEY=...
+```
+
 ## Architecture
 
 ```

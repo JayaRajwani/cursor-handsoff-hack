@@ -40,7 +40,7 @@ export function loadPayPalConfig(
   options: LoadConfigOptions = {},
 ): PayPalConfig {
   const warn = options.warn ?? true;
-  const rawMode = (env.PAYPAL_MODE ?? "").toLowerCase();
+  const rawMode = (env.PAYPAL_MODE ?? env.PAYPAL_ENVIRONMENT ?? "").toLowerCase();
   const clientId = env.PAYPAL_CLIENT_ID ?? "";
   const clientSecret = env.PAYPAL_CLIENT_SECRET ?? "";
   const hasCredentials = Boolean(clientId && clientSecret);

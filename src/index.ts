@@ -48,6 +48,10 @@ export { createPaymentServer } from "./api/server.js";
 
 export { MainAgentOrchestrator, createOrchestrator } from "./orchestration/MainAgentOrchestrator.js";
 export type { EventBrief, OrchestrationResult } from "./orchestration/types.js";
+export { runHackOS } from "./orchestration/HackOSApiOrchestrator.js";
+export type { HackOSRunResult, PayPalRunOutput } from "./orchestration/HackOSApiOrchestrator.js";
+export { runOrganizerAgent, organizerToEventBrief } from "./agents/organizer/OrganizerAgent.js";
+export type { OrganizerOutput, OrganizerRunResult } from "./agents/organizer/OrganizerAgent.js";
 
 export { mockEventBrief } from "./data/mockEventBrief.js";
 export { FUTURE_INTEGRATIONS } from "./integrations/index.js";

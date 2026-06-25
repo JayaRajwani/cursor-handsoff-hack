@@ -1,0 +1,36 @@
+create extension if not exists "pgcrypto";
+
+create table if not exists public.hackos_runs (
+  id uuid primary key default gen_random_uuid(),
+  goal text not null,
+  organizer_output jsonb not null,
+  sponsorship_output jsonb,
+  community_output jsonb,
+  paypal_output jsonb,
+  whatsapp_output jsonb,
+  agent_sources jsonb not null,
+  agent_errors jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now()
+);
+
+alter table public.hackos_runs
+  add column if not exists sponsorship_output jsonb,
+  add column if not exists community_output jsonb,
+  add column if not exists paypal_output jsonb,
+  add column if not exists whatsapp_output jsonb,
+  add column if not exists agent_sources jsonb not null default '{}'::jsonb,
+  add column if not exists agent_errors jsonb not null default '{}'::jsonb,
+  add column if not exists created_at timestamptz not null default now();
+
+create index if not exists hackos_runs_created_at_idx
+  on public.hackos_runs (created_at desc);
+
+alter table public.hackos_runs enable row level security;
+
+drop policy if exists "Service role can manage HackOS runs" on public.hackos_runs;
+
+create policy "Service role can manage HackOS runs"
+  on public.hackos_runs
+  for all
+  using (auth.role() = 'service_role')
+  with check (auth.role() = 'service_role');

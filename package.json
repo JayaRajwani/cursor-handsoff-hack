@@ -19,6 +19,10 @@
   },
   "keywords": ["hackathon", "agents", "events", "ai"],
   "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "openai": "^4.67.3"
+  },
   "devDependencies": {
     "@types/node": "^22.10.0",
     "tsx": "^4.19.2",
