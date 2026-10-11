@@ -64,7 +64,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-navy-50 to-background">
         <NetworkPattern className="text-primary opacity-50" />
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-2 lg:px-8 lg:py-24">
-          <div className="animate-fade-up">
+          <div>
             <Badge variant="teal" className="mb-5">
               <ShieldCheck aria-hidden="true" />
               Safety-first AI education for healthcare
