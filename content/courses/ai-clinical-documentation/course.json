@@ -1,0 +1,34 @@
+{
+  "title": "AI for Clinical Documentation",
+  "subtitle": "Use AI assistants to draft clearer notes, discharge summaries and referral letters — without compromising privacy or accuracy.",
+  "description": "Learn how AI tools can support (not replace) clinical documentation: structuring notes, drafting discharge summaries and referral letters from de-identified information, creating templates, and checking quality. The course places strong emphasis on data protection, institutional approval and clinician responsibility.",
+  "tool": "ChatGPT",
+  "level": "Intermediate",
+  "duration": "4 hours",
+  "price": { "pkr": 5999 },
+  "published": false,
+  "expectedLaunch": "Early 2027",
+  "roles": ["doctors", "nurses", "allied-health"],
+  "audience": [
+    "Doctors and nurses who write notes, summaries and letters",
+    "Allied health professionals who document assessments",
+    "Clinical informatics and quality teams"
+  ],
+  "outcomes": [
+    "Understand where AI can and cannot help with documentation",
+    "Create reusable documentation templates with AI",
+    "Draft letters and summaries from de-identified information",
+    "Apply a documentation quality checklist to AI-assisted drafts"
+  ],
+  "prerequisites": ["Basic familiarity with any AI chat assistant is helpful but not required"],
+  "modules": [
+    { "folder": "01-foundations", "title": "Foundations of AI-assisted documentation", "description": "Opportunities, risks and governance." },
+    { "folder": "02-templates", "title": "Templates and structure", "description": "Designing reusable note and letter templates." },
+    { "folder": "03-drafting", "title": "Drafting summaries and letters", "description": "Safe drafting from de-identified information." },
+    { "folder": "04-quality", "title": "Quality, accuracy and sign-off", "description": "Checklists, audit and clinician responsibility." }
+  ],
+  "faqs": [],
+  "certificate": true,
+  "image": "/images/courses/clinical-documentation.svg",
+  "keywords": ["AI clinical documentation", "AI discharge summary", "AI for medical notes"]
+}

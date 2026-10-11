@@ -1,0 +1,74 @@
+---
+title: "Writing for patients: plain language and health literacy"
+order: 5
+duration: 20
+description: "Use Claude to turn technical information into clear, kind, accessible language that patients understand."
+---
+
+Many patients struggle to understand written health information. Studies across many countries show that a large proportion of adults have limited health literacy, and stress, illness and language barriers make it harder still. Plain language is not "dumbing down" — it is good clinical communication.
+
+## The principles of plain language
+
+- **Short sentences** — aim for 15–20 words on average.
+- **Everyday words** — "high blood pressure" rather than "hypertension"; "kidney" rather than "renal".
+- **Active voice** — "Take one tablet each morning" rather than "One tablet should be taken".
+- **Speak to the reader** — use "you" and "we".
+- **One idea per paragraph**, with clear headings that answer the reader's questions.
+- **Explain necessary medical terms** the first time you use them.
+- **Tell people what to do**, not just what to know.
+
+## Prompts for plain-language rewriting
+
+<Prompt title="Simplify a technical paragraph">
+
+Rewrite the following paragraph for patients with limited health literacy. Use a reading age of about 10–11, short sentences and everyday words. Keep every clinical fact the same — do not add or remove medical information. Then list any words you replaced and what you replaced them with.
+
+[Paste a non-confidential technical paragraph here]
+
+</Prompt>
+
+The final instruction — list the words you replaced — makes it easy for you to check that meaning has not changed.
+
+<Prompt title="Answer the patient's real questions">
+
+Here is the outline of a leaflet about having a colonoscopy. List the ten questions a worried first-time patient is most likely to have, and check whether the outline answers each one. Suggest additions for any that are missing.
+
+</Prompt>
+
+## Tone: kind, calm and respectful
+
+Patients reading leaflets are often anxious. Ask Claude for a tone that is warm but not patronising, and avoid language that blames ("non-compliant", "failed to") or frightens unnecessarily. You can ask:
+
+<Prompt title="Check the tone">
+
+Review this leaflet for tone. Highlight any sentences that might sound blaming, frightening, patronising or overly technical to a patient, and suggest a kinder alternative for each.
+
+</Prompt>
+
+## Readability scores — useful but limited
+
+Readability formulas (such as Flesch Reading Ease) estimate difficulty from sentence and word length. Claude can estimate these, but its numbers are approximations — use a dedicated readability checker if you need an exact score. More importantly, a good score does not guarantee understanding. The best test is to **ask real patients or lay colleagues** to read the draft and explain it back to you.
+
+## Translation and multilingual materials
+
+Claude can help draft translations (for example into Urdu or other regional languages), but **machine-translated health information must be checked by a qualified, fluent speaker** — ideally a professional medical translator — before use. Small errors in translation can change clinical meaning. Also check that the script renders correctly in your design software and on printed copies.
+
+<Callout type="warning" title="Do not change the clinical meaning">
+
+When simplifying, Claude occasionally drops an important caveat or slightly changes a recommendation. Always compare the simplified version with the original, line by line, before approving it.
+
+</Callout>
+
+<Exercise title="Simplify and compare">
+
+Find a paragraph of technical text you would normally give to patients (from a non-confidential source, such as a public guideline summary). Ask Claude to simplify it using the prompt above. Compare the two versions and note any changes in meaning.
+
+</Exercise>
+
+<KeyTakeaways>
+
+- Plain language is good clinical communication: short sentences, everyday words, clear actions.
+- Ask Claude to preserve every clinical fact and to list the changes it made.
+- Readability scores help, but testing with real readers is better; translations need expert review.
+
+</KeyTakeaways>

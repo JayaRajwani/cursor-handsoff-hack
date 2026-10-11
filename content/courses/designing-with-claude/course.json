@@ -1,0 +1,89 @@
+{
+  "title": "Designing with Claude for Healthcare Professionals",
+  "subtitle": "Create clear patient leaflets, presentations, posters and staff training material with Anthropic's Claude — safely and professionally.",
+  "description": "A practical, safety-first course that shows healthcare professionals how to use Claude, Anthropic's AI assistant, to design high-quality communication and education materials. You will learn to write effective prompts, produce plain-language patient information, build presentations and posters, create staff training resources, and check everything for accuracy, readability and patient privacy before it is used.",
+  "tool": "Claude",
+  "level": "Beginner",
+  "duration": "4.5 hours",
+  "price": { "pkr": 4999, "usd": 18 },
+  "published": true,
+  "featured": true,
+  "roles": ["doctors", "nurses", "pharmacists", "allied-health", "admin", "students"],
+  "audience": [
+    "Doctors, nurses and pharmacists who create patient information or teach colleagues",
+    "Allied health professionals (physiotherapists, dietitians, lab and radiology staff)",
+    "Hospital administrators, quality and training teams",
+    "Medical, nursing and pharmacy students preparing presentations and posters",
+    "Anyone in healthcare who is new to AI and wants a safe, structured start"
+  ],
+  "outcomes": [
+    "Explain what Claude is, what it does well, and where it can be wrong",
+    "Apply a simple framework to write clear, reliable prompts for healthcare tasks",
+    "Draft plain-language patient leaflets at an appropriate reading level",
+    "Plan and design professional presentations, posters and infographics",
+    "Build staff training material, case scenarios and quizzes in a fraction of the time",
+    "Protect patient privacy by de-identifying information and following institutional policy",
+    "Check AI-generated content for clinical accuracy, bias and readability before use",
+    "Set up a repeatable, documented workflow your team can trust"
+  ],
+  "prerequisites": [
+    "No AI or technical experience needed",
+    "A free Claude account (we show you how to create one)",
+    "A laptop, tablet or phone with an internet connection"
+  ],
+  "modules": [
+    {
+      "folder": "01-getting-started",
+      "title": "Getting started with Claude",
+      "description": "What Claude is, how to set it up, and the safety rules that apply to every healthcare task."
+    },
+    {
+      "folder": "02-writing-effective-prompts",
+      "title": "Writing effective prompts",
+      "description": "A practical framework for prompts that produce accurate, well-structured, audience-appropriate output."
+    },
+    {
+      "folder": "03-patient-education-materials",
+      "title": "Designing patient education materials",
+      "description": "Leaflets, posters and infographics that patients can understand — and that your team can sign off."
+    },
+    {
+      "folder": "04-presentations-and-training",
+      "title": "Presentations and staff training",
+      "description": "Clinical presentations, teaching sessions, case scenarios and quizzes, plus a safe workflow for your team."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Do I need a paid Claude subscription?",
+      "answer": "No. Every exercise in this course can be completed with a free Claude account. Some features, such as larger file uploads or higher usage limits, are easier on a paid plan, and we point these out where relevant."
+    },
+    {
+      "question": "Is this course specific to one country's regulations?",
+      "answer": "The course teaches principles that apply everywhere — de-identification, verification and following institutional policy. We give examples from different settings, but you must always follow the laws and policies that apply where you work."
+    },
+    {
+      "question": "How long do I have access?",
+      "answer": "Once your enrolment is approved you have lifetime access to the course, including future updates to the lessons."
+    },
+    {
+      "question": "Will I receive a certificate?",
+      "answer": "Yes. When you complete every lesson you can download a certificate of completion with a unique verification ID that employers can check online."
+    },
+    {
+      "question": "Can my hospital enrol a group of staff?",
+      "answer": "Yes. Visit our For Institutions page to request group pricing, live training sessions and progress reporting."
+    }
+  ],
+  "certificate": true,
+  "image": "/images/courses/claude-design.svg",
+  "keywords": [
+    "Claude for healthcare",
+    "AI for doctors",
+    "AI for nurses",
+    "patient education leaflets AI",
+    "healthcare presentations AI",
+    "Anthropic Claude course"
+  ],
+  "lastUpdated": "2026-10-01"
+}

@@ -1,0 +1,77 @@
+---
+title: "Creating patient information leaflets"
+order: 8
+duration: 25
+description: "A step-by-step workflow for planning, drafting, designing and approving a patient leaflet with Claude."
+---
+
+Patient information leaflets are one of the most valuable things AI can help you produce. In this lesson we build a complete leaflet from scratch using a fictional example: **"Going home after a hip replacement"** for an orthopaedic ward.
+
+![The five-step leaflet workflow: plan, draft, design, review, approve](/images/courses/lesson-leaflet-workflow.svg)
+
+## Step 1: Plan before you prompt
+
+Spend five minutes answering these questions — they become your prompt:
+
+- **Who** is the leaflet for? (Patients going home after elective hip replacement, often older adults, sometimes with a carer.)
+- **What must they do** after reading it? (Manage pain, protect the new hip, recognise warning signs, attend follow-up.)
+- **What do they worry about?** (Pain, falls, stairs, the toilet, driving, when to call.)
+- **What source** will you base it on? (Your ward's approved discharge protocol — non-confidential.)
+- **What format?** (A4 folded to A5, four pages, large print.)
+
+## Step 2: Draft the content
+
+<Prompt title="Leaflet draft">
+
+I am a physiotherapist on an orthopaedic ward. Using only the attached discharge protocol, draft the text for a four-page A5 patient leaflet called "Going home after your hip replacement". Readers are mostly older adults; some have carers. Use a reading age of about 11, short sentences, and headings written as questions (for example "How do I manage pain at home?"). Include: a short welcome, looking after your wound, pain relief (general advice only, no doses), exercises (refer to the separate exercise sheet), moving safely at home, warning signs that need urgent help, and follow-up appointments. Leave a box at the end for ward contact numbers. Maximum 900 words.
+
+</Prompt>
+
+Then refine it using the techniques from Module 2: check the questions patients will ask, simplify further, and adjust the tone.
+
+## Step 3: Design the layout
+
+Claude can help with layout in two ways.
+
+**Option A — ask for a layout plan** and build it in your usual software (Word, Canva, PowerPoint or your organisation's template):
+
+<Prompt title="Layout plan">
+
+Suggest a page-by-page layout for this leaflet on A4 folded to A5. For each page, list the sections, approximate word counts, where a simple icon or illustration would help, and where to put the warning-signs box so it stands out. The leaflet must use at least 12-point font with high contrast.
+
+</Prompt>
+
+**Option B — ask Claude to build a printable design as an artifact.** For example: *"Create this leaflet as a printable A4 HTML page with a clean, professional layout, our brand colours (navy #0B2545 and teal #0F766E), large readable fonts and a highlighted warning-signs box."* Claude can display the result in the artifact panel, where you can preview it, ask for changes and download it, then print to PDF from your browser.
+
+<Callout type="tip" title="Design principles for patient leaflets">
+
+Use at least 12-point (ideally 14-point) text, left-aligned. Keep plenty of white space. Use bold sparingly for key actions. Put the most important safety information in a clearly boxed section. Avoid text over images, and never rely on colour alone to convey meaning.
+
+</Callout>
+
+## Step 4: Review
+
+Every leaflet needs review before use:
+
+1. **Clinical accuracy** — checked by a qualified clinician against the source.
+2. **Readability** — tested with lay readers or a patient panel where possible.
+3. **Accessibility** — font size, contrast, plain language, alternative formats.
+4. **Consistency** — matches what staff actually tell patients on the ward.
+
+## Step 5: Approve, publish and review dates
+
+Follow your organisation's process for patient information approval. Add a version number, publication date, review date (often two or three years) and the department responsible. Keep a record that AI assisted the drafting if your policy requires it.
+
+<Exercise title="Build a leaflet">
+
+Choose a topic relevant to your work and create a draft leaflet using steps 1 to 3. Use a fictional scenario and a non-confidential source. Save your plan, final prompt and draft — you will review it in lesson 10.
+
+</Exercise>
+
+<KeyTakeaways>
+
+- Plan the audience, actions, worries, source and format before you prompt.
+- Draft, refine, then design — either in your own software or as a Claude artifact.
+- Every leaflet needs clinical, readability and accessibility review, plus formal approval and a review date.
+
+</KeyTakeaways>

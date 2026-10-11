@@ -1,0 +1,105 @@
+---
+title: "The anatomy of a good prompt: the CLEAR framework"
+order: 4
+duration: 20
+description: "A simple, memorable framework for prompts that produce accurate, well-structured output for healthcare tasks."
+---
+
+The quality of what Claude produces depends heavily on the quality of what you ask. A vague request produces a generic answer; a clear, specific request produces something you can actually use. In this lesson you will learn the **CLEAR** framework — five ingredients of a strong healthcare prompt.
+
+## Compare two prompts
+
+**A weak prompt:**
+
+<Prompt title="Weak">
+
+Write a leaflet about diabetes.
+
+</Prompt>
+
+Claude will produce something — but for whom? Type 1 or type 2? How long? What reading level? Which country's guidance? What tone?
+
+**A strong prompt:**
+
+<Prompt title="Strong">
+
+You are helping a diabetes specialist nurse in an outpatient clinic. Draft a one-page patient leaflet for adults who have just been diagnosed with type 2 diabetes. Readers may have limited health literacy, so use short sentences, everyday words and a reading age of about 11. Cover: what type 2 diabetes is, why blood sugar matters, three practical first steps, and when to seek urgent help. Use headings and bullet points, and keep it under 350 words. Do not include medication doses. At the end, list any clinical statements I should verify against our local guideline.
+
+</Prompt>
+
+The second prompt takes 60 seconds longer to write and saves 20 minutes of editing.
+
+## The CLEAR framework
+
+| Letter | Ingredient | Question to ask yourself |
+| --- | --- | --- |
+| **C** | **Context** | Who am I, where do I work, and what is this for? |
+| **L** | **Listener** (audience) | Who will read or hear this, and what do they already know? |
+| **E** | **Expected output** | What format, length, structure and tone do I want? |
+| **A** | **Accuracy guardrails** | What must be included or avoided? What sources should be used? |
+| **R** | **Review and refine** | How will I check and improve the draft? |
+
+### C — Context
+
+Tell Claude your role, setting and purpose. "I am a clinical pharmacist preparing a teaching session for newly qualified nurses on a medical ward" gives Claude far more to work with than "make a presentation about insulin".
+
+### L — Listener
+
+Describe the audience precisely: patients, carers, students, consultants, managers. Include their likely knowledge, language needs, worries and constraints. Patients newly diagnosed with cancer need a very different tone from registrars preparing for an exam.
+
+### E — Expected output
+
+Specify the format (leaflet, slide outline, table, poster text, quiz), length (word count or number of slides), structure (headings, sections), and tone (warm, formal, reassuring). If you have a template or example you like, describe it or upload it.
+
+### A — Accuracy guardrails
+
+This is the most important ingredient in healthcare. Examples:
+
+- "Base the content only on the guideline I have uploaded; if something is not covered, say so."
+- "Do not include doses, brand names or statistics."
+- "Flag anything you are uncertain about."
+- "Use British English spelling and the units used in Pakistan (mg/dL for blood glucose)."
+
+### R — Review and refine
+
+Treat the first answer as a draft. Ask follow-up questions, request alternatives, and ask Claude to critique its own work against your requirements. We cover this in detail in lesson 6.
+
+<Callout type="tip" title="Upload your source">
+
+When accuracy matters, upload or paste the relevant (non-confidential) guideline, policy or product information, and instruct Claude to use only that source. This dramatically reduces errors and makes checking easier.
+
+</Callout>
+
+## A reusable prompt template
+
+Copy this template and fill in the square brackets:
+
+<Prompt title="CLEAR template">
+
+Context: I am a [role] at [type of setting]. I am creating [type of material] for [purpose].
+
+Listener: The audience is [who], who [what they know / need / worry about].
+
+Expected output: Please produce [format] of about [length], with [structure], in a [tone] tone.
+
+Accuracy guardrails: [Use only the attached source / do not include doses / flag uncertainties / local units and spelling].
+
+Before you write, ask me up to three questions if anything important is unclear.
+
+</Prompt>
+
+That last line is powerful: inviting Claude to ask clarifying questions often produces a much better result.
+
+<Exercise title="Rewrite a weak prompt">
+
+Take the weak prompt "Make a presentation about hand hygiene" and rewrite it using all five CLEAR ingredients for a specific audience you teach. Run both prompts in Claude and compare the results.
+
+</Exercise>
+
+<KeyTakeaways>
+
+- Specific prompts produce usable drafts; vague prompts produce generic text.
+- CLEAR = Context, Listener, Expected output, Accuracy guardrails, Review and refine.
+- Accuracy guardrails — sources, exclusions and flags — are essential in healthcare.
+
+</KeyTakeaways>

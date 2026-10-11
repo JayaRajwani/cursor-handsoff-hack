@@ -1,0 +1,34 @@
+{
+  "title": "AI for Healthcare Administration",
+  "subtitle": "Save hours on rosters, reports, policies, emails and meeting notes with AI productivity tools.",
+  "description": "Designed for hospital and clinic administrators, managers and support teams. Learn to use AI assistants for drafting policies and SOPs, summarising meetings, preparing reports, analysing spreadsheets, writing professional emails and improving patient-facing communication — with clear rules for data protection.",
+  "tool": "Microsoft Copilot",
+  "level": "Beginner",
+  "duration": "3.5 hours",
+  "price": { "pkr": 4999 },
+  "published": false,
+  "expectedLaunch": "2027",
+  "roles": ["admin"],
+  "audience": [
+    "Hospital and clinic administrators and managers",
+    "Front-desk, HR, finance and quality staff",
+    "Department secretaries and coordinators"
+  ],
+  "outcomes": [
+    "Draft policies, SOPs and reports faster",
+    "Summarise meetings and long documents accurately",
+    "Analyse spreadsheets and present data clearly",
+    "Use AI in line with your organisation's data rules"
+  ],
+  "prerequisites": ["Comfortable using email and office software"],
+  "modules": [
+    { "folder": "01-productivity", "title": "AI for everyday productivity", "description": "Email, documents and meeting notes." },
+    { "folder": "02-policies", "title": "Policies, SOPs and reports", "description": "Drafting and reviewing official documents." },
+    { "folder": "03-data", "title": "Working with data", "description": "Spreadsheets, dashboards and summaries." },
+    { "folder": "04-governance", "title": "Governance and data protection", "description": "Rules for safe use across your organisation." }
+  ],
+  "faqs": [],
+  "certificate": true,
+  "image": "/images/courses/healthcare-admin.svg",
+  "keywords": ["AI for hospital administration", "AI for healthcare managers", "Copilot for healthcare"]
+}

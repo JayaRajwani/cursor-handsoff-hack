@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" role="img" aria-labelledby="t">
+  <title id="t">Five-step leaflet workflow: Plan, Draft, Design, Review, Approve</title>
+  <rect width="900" height="220" rx="16" fill="#f5f7fa"/>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <g fill="#0f766e"><path d="M168 110h40l-8-8m8 8l-8 8" stroke="#0f766e" stroke-width="3" fill="none"/><path d="M338 110h40l-8-8m8 8l-8 8" stroke="#0f766e" stroke-width="3" fill="none"/><path d="M508 110h40l-8-8m8 8l-8 8" stroke="#0f766e" stroke-width="3" fill="none"/><path d="M678 110h40l-8-8m8 8l-8 8" stroke="#0f766e" stroke-width="3" fill="none"/></g>
+    <g>
+      <circle cx="105" cy="95" r="44" fill="#0b2545"/><text x="105" y="104" fill="#fff" font-size="26" font-weight="bold">1</text>
+      <text x="105" y="170" fill="#0b2545" font-size="18" font-weight="bold">Plan</text>
+      <text x="105" y="192" fill="#475569" font-size="13">audience &amp; source</text>
+    </g>
+    <g>
+      <circle cx="275" cy="95" r="44" fill="#0b2545"/><text x="275" y="104" fill="#fff" font-size="26" font-weight="bold">2</text>
+      <text x="275" y="170" fill="#0b2545" font-size="18" font-weight="bold">Draft</text>
+      <text x="275" y="192" fill="#475569" font-size="13">CLEAR prompt</text>
+    </g>
+    <g>
+      <circle cx="445" cy="95" r="44" fill="#0b2545"/><text x="445" y="104" fill="#fff" font-size="26" font-weight="bold">3</text>
+      <text x="445" y="170" fill="#0b2545" font-size="18" font-weight="bold">Design</text>
+      <text x="445" y="192" fill="#475569" font-size="13">layout &amp; visuals</text>
+    </g>
+    <g>
+      <circle cx="615" cy="95" r="44" fill="#0f766e"/><text x="615" y="104" fill="#fff" font-size="26" font-weight="bold">4</text>
+      <text x="615" y="170" fill="#0b2545" font-size="18" font-weight="bold">Review</text>
+      <text x="615" y="192" fill="#475569" font-size="13">accuracy &amp; readability</text>
+    </g>
+    <g>
+      <circle cx="785" cy="95" r="44" fill="#2f7d4f"/><text x="785" y="104" fill="#fff" font-size="26" font-weight="bold">5</text>
+      <text x="785" y="170" fill="#0b2545" font-size="18" font-weight="bold">Approve</text>
+      <text x="785" y="192" fill="#475569" font-size="13">version &amp; review date</text>
+    </g>
+  </g>
+</svg>

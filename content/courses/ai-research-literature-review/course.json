@@ -1,0 +1,34 @@
+{
+  "title": "AI for Medical Research & Literature Review",
+  "subtitle": "Search, screen and summarise the medical literature faster with AI research assistants — while keeping your methods rigorous.",
+  "description": "A practical guide to using AI research tools for literature searching, screening abstracts, summarising papers, extracting data and drafting manuscripts. You will learn to verify every citation, avoid fabricated references, and stay within journal and ethics-committee rules on AI use.",
+  "tool": "Perplexity",
+  "level": "Intermediate",
+  "duration": "5 hours",
+  "price": { "pkr": 6999 },
+  "published": false,
+  "expectedLaunch": "Spring 2027",
+  "roles": ["doctors", "pharmacists", "allied-health", "students"],
+  "audience": [
+    "Clinicians and researchers preparing reviews, theses or audits",
+    "Postgraduate trainees and medical students",
+    "Pharmacists and allied health professionals involved in research"
+  ],
+  "outcomes": [
+    "Build better search strategies with AI support",
+    "Screen and summarise papers efficiently and transparently",
+    "Detect and avoid fabricated citations",
+    "Follow journal policies on disclosing AI use"
+  ],
+  "prerequisites": ["Basic understanding of research methods"],
+  "modules": [
+    { "folder": "01-research-tools", "title": "The AI research toolkit", "description": "What different research assistants do well." },
+    { "folder": "02-searching", "title": "Searching and screening", "description": "Search strategies, screening and documentation." },
+    { "folder": "03-summarising", "title": "Summarising and extracting data", "description": "Reliable summaries and extraction tables." },
+    { "folder": "04-writing", "title": "Writing and publishing ethically", "description": "Drafting, citation checks and disclosure." }
+  ],
+  "faqs": [],
+  "certificate": true,
+  "image": "/images/courses/research-literature.svg",
+  "keywords": ["AI literature review", "AI medical research", "AI systematic review"]
+}

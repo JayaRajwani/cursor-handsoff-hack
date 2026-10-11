@@ -1,0 +1,149 @@
+/*
+ * ============================================================
+ *  DESIGN TOKENS — change colours, radius and fonts here
+ * ============================================================
+ * All colours used across the site come from the variables in
+ * `:root` below. Change a value here and the whole site updates.
+ * Text colours were chosen to meet WCAG AA contrast on white.
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+:root {
+  /* Base surfaces */
+  --background: #ffffff;
+  --foreground: #0f172a; /* near-black slate for body text */
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Brand: deep navy (trust) */
+  --primary: #0b2545;
+  --primary-foreground: #ffffff;
+  --navy-900: #071a33;
+  --navy-700: #13315c;
+  --navy-100: #dde6f2;
+  --navy-50: #eef3f9;
+
+  /* Brand: medical teal (accent). Use --teal for text/icons (5.4:1 on white). */
+  --teal: #0f766e;
+  --teal-strong: #115e59;
+  --teal-soft: #ccfbf1;
+  --teal-50: #f0fdfa;
+
+  /* Neutral greys */
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0b2545;
+  --muted: #f5f7fa; /* soft grey section background */
+  --muted-foreground: #475569; /* 7.5:1 on white */
+  --accent: #f0fdfa; /* hover background for ghost buttons/menus */
+  --accent-foreground: #115e59;
+  --border: #e2e8f0;
+  --input: #cbd5e1;
+  --ring: #0f766e;
+
+  /* Status colours */
+  --success: #2f7d4f; /* muted green, 5.1:1 on white */
+  --success-soft: #e8f3ec;
+  --warning: #92400e;
+  --warning-soft: #fef3c7;
+  --destructive: #b42318;
+  --destructive-soft: #fdecea;
+
+  --radius: 0.625rem;
+}
+
+/* Make the variables above available as Tailwind classes, e.g. bg-primary, text-teal */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-navy-900: var(--navy-900);
+  --color-navy-700: var(--navy-700);
+  --color-navy-100: var(--navy-100);
+  --color-navy-50: var(--navy-50);
+  --color-teal: var(--teal);
+  --color-teal-strong: var(--teal-strong);
+  --color-teal-soft: var(--teal-soft);
+  --color-teal-50: var(--teal-50);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-destructive: var(--destructive);
+  --color-destructive-soft: var(--destructive-soft);
+
+  /* Fonts are loaded in src/app/layout.tsx with next/font */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Subtle fade-in used for sections */
+  --animate-fade-up: fade-up 0.6s ease-out both;
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif text-primary tracking-tight;
+  }
+  /* Clear, visible keyboard focus everywhere */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-teal;
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

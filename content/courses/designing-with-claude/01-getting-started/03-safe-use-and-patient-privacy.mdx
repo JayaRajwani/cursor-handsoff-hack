@@ -1,0 +1,90 @@
+---
+title: "Safe use and patient privacy"
+order: 3
+duration: 20
+description: "The non-negotiable rules for using AI in healthcare: de-identification, verification, bias and institutional policy."
+resources:
+  - title: "AI safety checklist for healthcare materials (printable)"
+    file: "ai-safety-checklist.md"
+---
+
+Before we design anything, we need a clear set of safety rules. These apply to every lesson in this course and to every AI tool you will ever use at work.
+
+## Rule 1: Never enter identifiable patient information
+
+Information that could identify a patient must never be typed, pasted or uploaded into a general-purpose AI tool unless your organisation has explicitly approved that specific tool for that purpose. Identifiable information includes much more than a name:
+
+- Names, initials combined with other details, or nicknames
+- Hospital, medical record (MR) or national ID numbers (for example CNIC numbers)
+- Dates of birth, admission or discharge dates
+- Addresses, postcodes, phone numbers and email addresses
+- Photographs, scans or documents showing faces, labels or identifiers
+- Rare conditions, unusual occupations or local events that could identify someone in context
+
+<Callout type="privacy" title="The newspaper test">
+
+Before you paste anything into an AI tool, ask: *"If this text appeared in a newspaper, could anyone — including the patient's family or neighbours — work out who it is about?"* If the answer is yes or maybe, do not paste it.
+
+</Callout>
+
+### How to de-identify an example
+
+For this course you almost never need real patient details. Instead of de-identifying real cases, it is safer to **invent a representative example**:
+
+| Instead of… | Use… |
+| --- | --- |
+| "Mrs Ayesha K., 67, MR 445812, admitted 3 March with…" | "A woman in her late 60s admitted with…" |
+| A photo of a real wound | A description, or a licensed teaching image |
+| The actual discharge letter | A template with the structure but no patient data |
+
+## Rule 2: Verify every clinical fact
+
+Claude can produce errors that look authoritative. Every drug name, dose, threshold, statistic, recommendation and reference in an AI draft must be checked against a trusted, current source — national or international guidelines, your local formulary, product information or your institution's protocols.
+
+A practical approach is to ask Claude to **mark claims that need verification** and then check each one yourself:
+
+<Prompt title="Ask Claude to flag what needs checking">
+
+At the end of the leaflet, add a section called "For clinical reviewer" that lists every factual clinical claim in the text (doses, timings, thresholds, statistics) as a numbered checklist so I can verify each one against our local guideline.
+
+</Prompt>
+
+## Rule 3: Watch for bias and exclusion
+
+AI models learn from existing text, which contains biases. Drafts may assume a particular culture, diet, literacy level, gender or family structure. Review materials for:
+
+- Examples and images that reflect your actual patient population
+- Dietary and lifestyle advice that is culturally appropriate (for example, for patients who fast during Ramadan)
+- Language that is respectful, non-judgemental and inclusive
+- Accessibility: large fonts, good contrast, simple words, and alternatives for people who cannot read
+
+## Rule 4: Follow your institution's policy — and be transparent
+
+- Find out whether your organisation has an **AI use policy** and which tools are approved.
+- Use AI-assisted materials only after the normal **review and approval** process (for example a patient information committee).
+- Be open about AI assistance when appropriate. Many organisations ask staff to note "Drafted with AI assistance and reviewed by [role]" on internal documents.
+- Keep a simple **record** of what you used AI for and who reviewed the output.
+
+## Rule 5: You are accountable
+
+Professional regulators are clear that clinicians remain responsible for the information they give patients and colleagues, whatever tool helped produce it. AI is a drafting assistant; the professional judgement is yours.
+
+<Callout type="warning" title="When not to use AI at all">
+
+Do not use general AI tools for urgent clinical decisions, for interpreting individual patient results, or for anything you cannot verify. If in doubt, ask your supervisor or information governance lead.
+
+</Callout>
+
+<Exercise title="Spot the identifiers">
+
+Read this invented note: *"Mr R. Ahmed, 54, a school principal from a small village near Murree, MR 22871, admitted on 12 June with chest pain."* List every element that could identify him, then rewrite it as a safe, generic teaching example. Download the AI safety checklist from the resources section and keep it beside your computer.
+
+</Exercise>
+
+<KeyTakeaways>
+
+- Never enter identifiable patient information into AI tools — invent representative examples instead.
+- Verify every clinical fact against trusted, current sources.
+- Review drafts for bias and accessibility, follow your institution's policy, and remember that you remain accountable.
+
+</KeyTakeaways>

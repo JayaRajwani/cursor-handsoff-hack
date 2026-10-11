@@ -1,15 +1,33 @@
-node_modules/
-dist/
-*.log
-.DS_Store
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
 
-# Environment files (never commit secrets)
+# Next.js build output
+/.next/
+/out/
+/build
+
+# Testing
+/coverage
+
+# Misc
+.DS_Store
+*.pem
+*.log
+npm-debug.log*
+
+# Environment files — NEVER commit secrets
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
+!.env.example
 
-# PayPal sandbox credential kit (treat as secret)
-paypal-sandbox-kit.csv
-/mnt/data/paypal-sandbox-kit.csv
+# Vercel
 .vercel
-.env*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
