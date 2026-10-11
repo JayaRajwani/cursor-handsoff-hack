@@ -9,7 +9,7 @@ import { createServerClient } from "@supabase/ssr";
 import { isSupabaseConfigured, supabasePublicKey, supabaseUrl } from "./env";
 
 /** Pages that require a logged-in user. */
-const PROTECTED_PREFIXES = ["/dashboard", "/admin", "/enroll"];
+const PROTECTED_PREFIXES = ["/dashboard", "/admin", "/enroll", "/reset-password"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });

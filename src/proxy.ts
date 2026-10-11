@@ -13,5 +13,5 @@ export async function proxy(request: NextRequest) {
 export const config = {
   // Only run on pages that need the session. Public marketing pages,
   // static files and images skip the proxy, which keeps them fast.
-  matcher: ["/dashboard/:path*", "/admin/:path*", "/enroll/:path*", "/learn/:path*", "/auth/:path*", "/login", "/signup"],
+  matcher: ["/dashboard/:path*", "/admin/:path*", "/enroll/:path*", "/learn/:path*", "/auth/:path*", "/login", "/signup", "/reset-password"],
 };
